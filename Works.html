@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+	<meta charset="utf-8">
+	<title>Wokrs</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<style type="text/css">
+        @font-face{
+            src: url("../font/AppleSDGothicNeoB.ttf");
+            font-family: "SD_B";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoH.ttf");
+            font-family: "SD_H";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoM.ttf");
+            font-family: "SD_M";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoL.ttf");
+            font-family: "SD_L";
+        }
+
+		*{
+			/* font-family: 'Noto Sans KR', sans-serif; */
+			margin: 0;
+			padding: 0;
+        }
+        body{ -ms-overflow-style: none; } 
+        
+        ::-webkit-scrollbar { display: none; }
+
+        .content{
+            width: 1280px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header{
+            margin-top: 24px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a{
+            font-family: 'Noto Sans KR', sans-serif;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .logo{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+        .logo1{
+            color: #0084A3;
+        }
+        .logo2{
+            color: #9b3745;
+        }
+        .page{
+            color: #2b2b2b;
+            font-size: 24px;
+
+            margin-right: -1050px;
+        }
+        .search{
+            color: #2b2b2b;
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+        }
+        #search-bar{
+            position: absolute;
+
+            width: 500px;
+            height: 40px;
+            border-radius: 100px;
+            border: none;
+            background-color: #2b2b2b;
+
+            right: 370px;
+
+            display: none;
+            
+            text-align: center;
+        }
+        input::placeholder {
+            color: #fff;
+            font-family: "SD_L";
+            }
+
+        /* 카테고리 선택 부분 */
+        .category{
+            /* margin-left: -5px; */
+
+            margin-top: 20px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+        }
+        .media{
+            position: absolute;
+
+            width: 360px;
+            /* background-color: #2b2b2b; */
+            padding: 16px 0px;
+
+            text-align: center;
+
+            margin-bottom: 16px;
+
+            transition: all 0.3s;
+        }
+        .light-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #9b3745;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: center;
+        }
+        .light-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 2px;
+
+            background-color: #fff;
+        }
+        .icon{
+            font-size: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            margin-bottom: 20px;
+
+            color: #9b3745;
+        }
+        .media p{
+            color: #2b2b2b;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+        }
+        .media h2{
+            color: #2b2b2b;
+            font-size: 24px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .category:hover .media .light-1{
+            opacity: 0;
+        }
+        .category:hover .media h3{
+            opacity: 100;
+        }
+        .category:hover .indust .light1-1{
+            opacity: 0;
+        }
+        .category:hover .indust h3{
+            opacity: 100;
+        }
+
+        .indust{
+            position: absolute;
+
+            width: 360px;
+            /* background-color: #2b2b2b; */
+            padding: 16px 0px;
+
+            top: 0;
+        
+            text-align: center;
+
+            margin-bottom: 16px;
+
+            display: none;
+
+            transition: all 0.3s;
+        }
+        .indust p{
+            color: #2b2b2b;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+        }
+        .indust h2{
+            color: #2b2b2b;
+            font-size: 24px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .icon1{
+            font-size: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            margin-bottom: 20px;
+
+            color: #0084A3;
+        }
+        .light1-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #0084A3;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: center;
+        }
+        .light1-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 24px;
+
+            background-color: #fff;
+        }
+        .media h3{
+            position: absolute;
+
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            /* opacity: 0; */
+
+            top: 25px;
+            left: 158px;
+
+            color: #9b3745;
+
+            opacity: 0;
+        }
+
+        .indust h3{
+            position: absolute;
+
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            /* opacity: 0; */
+
+            top: 25px;
+            left: 158px;
+
+            color: #0084A3;
+
+            opacity: 0;
+        }
+
+        /* 작품들 프로필 부분 */
+        .container-m{
+            margin-top: 250px;
+        }
+        .container-i{
+            margin-top: 250px;
+            display: none;
+            display: none;
+        }
+        .work{
+            margin-bottom: 48px;
+        }
+        .work2{
+            margin-left: 360px;
+            margin-bottom: 48px;
+        }
+        .container-i .work2{
+            margin-left: 360px;
+            margin-bottom: 48px;
+        }
+        .work-img1{
+            display: inline-block;
+            width: 690px;
+            height: 432px;
+
+            background-image: url(https://i.postimg.cc/brj2Mq6t/image.png);
+            background-position: center;
+            background-size: cover;
+
+            text-decoration: none;
+
+            margin-right: 48px;
+        }
+
+        .work-img2{
+            display: inline-block;
+            width: 690px;
+            height: 432px;
+
+            margin-left: 240px;
+
+            background-image: url(https://i.postimg.cc/NjchJS7r/image.png);
+            background-position: center;
+            background-size: cover;
+
+            text-decoration: none;
+        }
+
+        .work-img3{
+            display: inline-block;
+            width: 690px;
+            height: 432px;
+
+            background-image: url(https://i.postimg.cc/kgJyjvZy/works01.png);
+            background-position: center;
+            background-size: cover;
+
+            text-decoration: none;
+
+            margin-right: 48px;
+        }
+
+        .work-img4{
+            display: inline-block;
+            width: 690px;
+            height: 432px;
+
+            margin-left: 240px;
+
+            background-image: url(https://i.postimg.cc/kgJyjvZy/works01.png);
+            background-position: center;
+            background-size: cover;
+
+            text-decoration: none;
+        }
+
+        .container-i .work-img1{
+            display: inline-block;
+            width: 690px;
+            height: 432px;
+
+            background-image: url('texture/indust-1.PNG');
+            background-position: center;
+            background-size: cover;
+
+            text-decoration: none;
+
+            margin-right: 48px;
+        }
+
+        .container-i .work-img2{
+            display: inline-block;
+            width: 690px;
+            height: 432px;
+
+            margin-left: 240px;
+
+            background-image: url('texture/indust-2.PNG');
+            background-position: center;
+            background-size: cover;
+
+            text-decoration: none;
+        }
+
+
+        .overlay{
+            background-color: rgba(0, 0, 0, 0.8);
+            width: 100%;
+            height: 100%;
+
+            color: #fff;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .overlay h4{
+            font-size: 24px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+
+            margin-left: 48px;
+        }
+        .overlay h3{
+            font-size: 36px;
+            font-family: "SD_M";
+            letter-spacing: 0.15em;
+
+            margin-left: 48px;
+            margin-bottom: 28px;
+        }
+        .overlay P{
+            font-size: 18px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+
+            margin-left: 48px;
+        }
+        .work-action{
+            position: absolute;
+            display: inline-block;
+
+            height: 432px;
+        }
+        .work-action h2{
+            font-size: 36px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .work-action h1{
+            font-size: 48px;
+            font-family: "SD_M";
+            letter-spacing: 0.15em;
+        }
+
+        .work-action2{
+            position: absolute;
+            display: inline-block;
+
+            text-align: right;
+
+            height: 432px;
+        }
+        .work-action2 h2{
+            font-size: 36px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .work-action2 h1{
+            font-size: 48px;
+            font-family: "SD_M";
+            letter-spacing: 0.15em;
+        }
+        .buttons{
+            position: absolute;
+            display: inline-block;
+
+            margin-top: 212px;
+        }
+        .buttons2{
+            position: absolute;
+            display: inline-block;
+
+            margin-top: 212px;
+
+            margin-left: 120px;
+        }
+        .heart{
+            color: #fff;
+            background-color: #9b3745;
+            width: 54px;
+            height: 54px;
+            border-radius: 30px;
+
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: all 0.3s;
+        }
+        .share{
+            color: #fff;
+            background-color: #9b3745;
+            width: 54px;
+            height: 54px;
+            border-radius: 30px;
+
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 18px;
+            margin-bottom: 18px;
+
+            transition: all 0.3s;
+        }
+        .down{
+            color: #fff;
+            background-color: #9b3745;
+            width: 54px;
+            height: 54px;
+            border-radius: 30px;
+
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: all 0.3s;
+        }
+        .heart:hover{
+            background-color: #fff;
+            color: #9b3745;
+        }
+        .share:hover{
+            background-color: #fff;
+            color: #9b3745;
+        }
+        .down:hover{
+            background-color: #fff;
+            color: #9b3745;
+        }
+
+        .container-i .heart{
+            color: #fff;
+            background-color: #0084A3;
+            width: 54px;
+            height: 54px;
+            border-radius: 30px;
+
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: all 0.3s;
+        }
+        .container-i .share{
+            color: #fff;
+            background-color: #0084A3;
+            width: 54px;
+            height: 54px;
+            border-radius: 30px;
+
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-top: 18px;
+            margin-bottom: 18px;
+
+            transition: all 0.3s;
+        }
+        .container-i .down{
+            color: #fff;
+            background-color: #0084A3;
+            width: 54px;
+            height: 54px;
+            border-radius: 30px;
+
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            transition: all 0.3s;
+        }
+        .container-i .heart:hover{
+            background-color: #fff;
+            color: #0084A3;
+        }
+        .container-i .share:hover{
+            background-color: #fff;
+            color: #0084A3;
+        }
+        .container-i .down:hover{
+            background-color: #fff;
+            color: #0084A3;
+        }
+
+
+        .work-img1:hover .overlay{
+            opacity: 100;
+        }
+        .work-img2:hover .overlay{
+            opacity: 100;
+        }
+        .work-img3:hover .overlay{
+            opacity: 100;
+        }
+        .work-img3:hover .overlay{
+            opacity: 100;
+        }
+        
+        footer{
+            /* position: absolute; */
+
+            background-color: black;
+            width: 100%;
+            height: 70px;
+
+            bottom: 0;
+            left: 0;
+
+            margin-top: 36px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footers{
+            width: 1280px;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        
+        .address{
+            text-decoration: none;
+
+            font-family: "SD_L";
+            color: white;
+            font-size: 14px;
+
+            letter-spacing: 0.15em;
+        }
+
+        .sns{
+            display: flex;
+            flex-direction: row;
+
+            margin-left: 320px;
+        }
+        .sns a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .kpu{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+	</style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div class="content">
+        <header>
+            <a class="logo" href="Main-sub.html"><span class="logo1">ON</span><span class="logo2">OFF</span></a>
+            <a class="page" href="Mypage.html"><i class="fas fa-user"></i></a>
+            <div class="search"><i class="fas fa-search"></i>
+                <input type="text" id="search-bar" placeholder="원하는 작가를 검색해보세요."></input>
+            </div>
+        </header>
+
+        <div class="category">
+            <div class="media">
+                <div class="light-1">
+                    <div class="light-2"></div>
+                </div>
+                <h3>CLICK!</h3>
+                <i class="icon fas fa-object-group"></i>
+                <p>MAJOR</p>
+                <h2>미디어 디자인 공학부</h2>
+            </div>
+            <div class="indust">
+                <div class="light1-1">
+                    <div class="light1-2"></div>
+                </div>
+                <h3>CLICK!</h3>
+                <i class="icon1 fas fa-drafting-compass"></i>
+                <p>MAJOR</p>
+                <h2>산업 디자인 공학부</h2>
+            </div>
+        </div>
+
+        <div class="container-m">
+            <div class="work">
+                <a href="Works-de.html"class="work-img1">
+                    <div class="overlay">
+                        <h4>지역연계</h4>
+                        <h3>우산대여어플</h3>
+                        <p>대학생들의 비가 오는 날 건물 간 거리를 이동할 때 이용할 수 있도록 함
+                            <br>어플리케이션</p>
+                    </div>
+                </a>
+
+                <div class="work-action">
+                    <h2>지역연계</h2>
+                    <h1>Renting umbrella</h1>
+                </div>
+
+                <div class="buttons">
+                    <div class="heart"><i class="fas fa-heart"></i></div>
+                    <div class="share"><i class="fas fa-share-alt"></i></div>
+                    <div class="down"><i class="fas fa-cloud-download-alt"></i></div>
+                </div>
+            </div>
+
+            <div class="work2">
+                <div class="work-action2">
+                    <h2>창의융합</h2>
+                    <h1>Speaker</h1>
+                </div>
+
+                <div class="buttons2">
+                    <div class="heart"><i class="fas fa-heart"></i></div>
+                    <div class="share"><i class="fas fa-share-alt"></i></div>
+                    <div class="down"><i class="fas fa-cloud-download-alt"></i></div>
+                </div>
+
+                <a href="Works-de.html"class="work-img2">
+                    <div class="overlay">
+                        <h4>창의융합</h4>
+                        <h3>My speaker</h3>
+                        <p>자신만의 스피커를 디자인하여 제품을
+                            <br>제품과 어플리케이션</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="work3">
+                <a href="Works-de.html"class="work-img3">
+                    <div class="overlay">
+                        <h4>지역연계</h4>
+                        <h3>치매노인 부양 서비스 앱</h3>
+                        <p>치매에 걸린 노인을 위한 앱으로 노인들에게 더 나은 서비스 제공을 함
+                            <br> 어플리케이션</p>
+                    </div>
+                </a>
+
+                <div class="work-action">
+                    <h2>지역연계</h2>
+                    <h1>SENDIZ</h1>
+                </div>
+
+                <div class="buttons">
+                    <div class="heart"><i class="fas fa-heart"></i></div>
+                    <div class="share"><i class="fas fa-share-alt"></i></div>
+                    <div class="down"><i class="fas fa-cloud-download-alt"></i></div>
+                </div>
+            </div>
+        </div>
+         
+        <div class="container-i">
+            <div class="work">
+                <a href="Works-de.html"class="work-img1">
+                    <div class="overlay">
+                        <h4>지역연계</h4>
+                        <h3>SIGNAL DOORKNOB</h3>
+                        <p>판자촌에 거주하는 노인들의 고독사를 막기위한 
+                            <br>유니버셜 디자인 제품</p>
+                    </div>
+                </a>
+
+                <div class="work-action">
+                    <h2>지역연계</h2>
+                    <h1>SIGNAL DOORKNOB</h1>
+                </div>
+
+                <div class="buttons">
+                    <div class="heart"><i class="fas fa-heart"></i></div>
+                    <div class="share"><i class="fas fa-share-alt"></i></div>
+                    <div class="down"><i class="fas fa-cloud-download-alt"></i></div>
+                </div>
+            </div>
+
+            <div class="work2">
+                <div class="work-action2">
+                    <h2>창의융합</h2>
+                    <h1>T.Safe</h1>
+                </div>
+
+                <div class="buttons2">
+                    <div class="heart"><i class="fas fa-heart"></i></div>
+                    <div class="share"><i class="fas fa-share-alt"></i></div>
+                    <div class="down"><i class="fas fa-cloud-download-alt"></i></div>
+                </div>
+
+                <a href="Works-de2.html" class="work-img2">
+                    <div class="overlay">
+                        <h4>창의융합</h4>
+                        <h3>One touch Safe</h3>
+                        <p>2차 감염의 위험 없이 한 번에 상처를 치료하는
+                            <br>아이디어 연고 제품</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footers">
+            <div class="address">© UI System Design corp. All rights reserved.</div>
+
+            <div class="sns">
+                <div class="facebook"><a href="#"><i class="fab fa-facebook"></i></a></div>
+                <div class="kpu"><a href="#"><i class="fas fa-university"></i></a></div>
+                <div class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // 자바 인터렉션 주는 부분
+
+        $('.search').click(function(){
+            $('#search-bar').slideDown(300);
+        });
+
+        $(document).mousedown(function(){
+            $('#search-bar').slideUp(300);
+        });
+
+        $('#search-bar').mousedown(function(e){
+            e.stopPropagation();
+        });
+
+        $('.media').click(function(){
+            $('.media').fadeOut(300, function(){
+                $('.indust').fadeIn(300);
+            })
+
+            $('.container-m').fadeOut(300, function(){
+                $('.container-i').fadeIn(300);
+            });
+        })
+
+        $('.indust').click(function(){
+            $('.indust').fadeOut(300, function(){
+                $('.media').fadeIn(300);
+            })
+
+            $('.container-i').fadeOut(300, function(){
+                $('.container-m').fadeIn(300);
+            });
+        })
+
+    </script>
+</body>
+</html>

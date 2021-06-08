@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+	<meta charset="utf-8">
+	<title>Mypage</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<style type="text/css">
+        @font-face{
+            src: url("../font/AppleSDGothicNeoB.ttf");
+            font-family: "SD_B";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoH.ttf");
+            font-family: "SD_H";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoM.ttf");
+            font-family: "SD_M";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoL.ttf");
+            font-family: "SD_L";
+        }
+
+		*{
+			/* font-family: 'Noto Sans KR', sans-serif; */
+			margin: 0;
+			padding: 0;
+        }
+        body{ -ms-overflow-style: none; } 
+        
+        ::-webkit-scrollbar { display: none; }
+
+        .content{
+            width: 1280px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header{
+            margin-top: 24px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a{
+            font-family: 'Noto Sans KR', sans-serif;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .logo{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+        .logo1{
+            color: #0084A3;
+        }
+        .logo2{
+            color: #9b3745;
+        }
+        .logout{
+           color: #2b2b2b;
+           font-family: 'Montserrat', sans-serif;
+           font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+
+        /* 마이페이지 컨텐츠 부분 */
+        .mypage{
+            margin-top: 80px;
+        }
+        .intro{
+            display: flex;
+            flex-direction: row;
+
+            margin-bottom: 80px;
+        }
+        .intro-img{
+            background-image: url(https://i.postimg.cc/YqRfgnMk/rthgffg.png);
+            background-position: center;
+            background-size: cover;
+
+            width: 250px;
+            height: 300px;
+
+            margin-right: 48px;
+        }
+
+        .intro-word h2{
+            margin-top: 180px;
+            font-family: 'SD_L';
+            font-size: 24px;
+            letter-spacing: 0.15em;
+        }
+        .intro-word h1{
+            font-family: 'SD_M';
+            font-size: 36px;
+            letter-spacing: 0.15em;
+
+            margin-bottom: 24px;
+        }
+        .intro-word h3{
+            font-family: 'SD_L';
+            font-size: 18px;
+            letter-spacing: 0.15em;
+        }
+        .down-list{
+            position: absolute;
+
+            margin-left: 24px;
+            margin-top: -60px;
+
+            display: none;
+        }
+        .list1 a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .list2 a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .list3 a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .down-list p{
+           font-size: 18px;
+           letter-spacing: 0.15em;
+           font-family: "SD_L";
+        }
+        .down-list h5{
+           font-size: 36px;
+           letter-spacing: 0.15em;
+           font-family: "SD_M";
+        }
+        .down{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        .down1{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        .navi{
+            width: 600px;
+            height: 564px;
+
+            overflow: hidden;
+
+            /* background-color: #ccc; */
+
+            display: flex;
+            flex-direction: row;
+            
+            margin-bottom: 24px;
+            /* justify-content: space-between; */
+        }
+        .navi h4{
+            font-size: 20px;
+            font-family: "SD_M";
+            letter-spacing: 0.15em;
+
+            margin-bottom: 24px;
+            margin-right: 24px;
+        }
+        .light2-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #9b3745;
+
+            margin-top: 5px;
+
+            display: flex;
+            align-items: center;
+        }
+        .light2-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 4px;
+
+            background-color: #fff;
+        }
+        .light2-3{
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 24px;
+
+            background-color: #fff;
+
+            display: none;
+        }
+        .list1{
+            /* position: absolute; */
+            width: 528px;
+            height: 90px;
+
+            background-color: #9b3745;
+
+            padding-top: 30px;
+            padding-left: 24px;
+        }
+        .list2{
+            /* position: absolute; */
+            width: 528px;
+            height: 90px;
+
+            background-color: #9b3745;
+
+            padding-top: 30px;
+            padding-left: 24px;
+
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        .list3{
+            /* position: absolute; */
+            width: 528px;
+            height: 90px;
+
+            background-color: #9b3745;
+
+            padding-top: 30px;
+            padding-left: 24px;
+        }
+        .down1 .down-list{
+            position: absolute;
+
+            margin-left: 24px;
+            margin-top: -180px;
+
+            display: none;
+        }
+        .down1 .light2-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #0084A3;
+
+            margin-top: 5px;
+
+            display: flex;
+            align-items: center;
+        }
+        .down1 .list1{
+            /* position: absolute; */
+            width: 528px;
+            height: 90px;
+
+            background-color: #0084A3;
+
+            padding-top: 30px;
+            padding-left: 24px;
+        }
+        .down1 .list2{
+            /* position: absolute; */
+            width: 528px;
+            height: 90px;
+
+            background-color: #0084A3;
+
+            padding-top: 30px;
+            padding-left: 24px;
+
+            margin-bottom: 24px;
+            margin-top: 24px;
+        }
+        .down-p{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        /* 푸터 부분 */
+        footer{
+            /* position: absolute; */
+
+            background-color: black;
+            width: 100%;
+            height: 70px;
+
+            bottom: 0;
+            left: 0;
+
+            margin-top: 80px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footers{
+            width: 1280px;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        
+        .address{
+            text-decoration: none;
+
+            font-family: "SD_L";
+            color: white;
+            font-size: 14px;
+
+            letter-spacing: 0.15em;
+        }
+
+        .sns{
+            display: flex;
+            flex-direction: row;
+
+            margin-left: 320px;
+        }
+        .sns a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .kpu{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        /* 채팅방 부분 */
+        .chat{
+            /* padding-top: 42px;
+            padding-bottom: 42px; */
+            width: 494px;
+            height: 700px;
+            padding-bottom: 42px;
+
+            z-index: 11;
+
+            position: fixed; 
+            bottom: 70px;
+            right: 320px;
+            
+            background-color: #fff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+
+            display: none;
+        }
+        .chat-t{
+            margin-top: 42px;
+        
+        }
+        .chat-t h2{
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+            font-size: 18px;
+        }
+        .chat-t h1{
+            font-family: "SD_B";
+            letter-spacing: 0.15em;
+            font-size: 24px;
+
+            margin-bottom: 32px;
+        }
+        .chat-m{
+            background-color: #0084A3;
+            width: 410px;
+            height: 463px;
+
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 12px;
+
+            padding-top: 24px;
+        }
+        .chat-b1{
+            margin-left: 24px;
+            width: 250px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #fff;
+            border-radius: 20px;
+
+            color :#2b2b2b;
+            text-align: center;
+
+            font-family: "SD_M";
+            font-size: 18px;
+
+            margin-bottom: 24px;
+        }
+        .chat-b2{
+            margin-left: 136px;
+            width: 250px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #fff;
+            border-radius: 20px;
+
+            color :#2b2b2b;
+            text-align: center;
+
+            font-family: "SD_M";
+            font-size: 18px;
+
+            margin-bottom: 24px;
+        }
+        #chat-b{
+            width: 350px;
+            height: 60px;
+            border: none;
+            background-color: #2b2b2b;
+
+            border-radius: 0px;
+            text-align: center;
+
+            margin-right: 12px;
+        }
+        input::placeholder {
+            color: #ffffff;
+            font-family: "SD_L";
+        }
+        .chat-s{
+            display: inline-block;
+            /* margin-top: 4px; */
+            /* background-color: #ccc; */
+
+            font-size: 24px;
+
+            margin-right: 20px;
+        }
+	</style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div class="content">
+
+        <div class="chat">
+            <div class="chat-t">
+                <h2>
+                    2016162028
+                    </h2>
+                <h1>김민재</h1>
+            </div>
+    
+            <div class="chat-m">
+                <div class="chat-b1">안녕하세요!</div>
+                <div class="chat-b2">반갑습니다.</div>
+            </div>
+    
+            <div class="chat-i">
+                <input type="text" id="chat-b" style="color: #ffffff;" placeholder="메시지를 입력해주세요."></input>
+                <div class="chat-s"><i class="fas fa-paper-plane"></i></div>
+            </div>
+        </div>
+
+        <header>
+            <a class="logo" href="Main-sub.html"><span class="logo1">ON</span><span class="logo2">OFF</span></a>
+            <a href="index.html" class="logout">Logout</a>
+        </header>
+
+        <div class="mypage">
+            <div class="intro">
+                <div class="intro-img"></div>
+                <div class="intro-word">
+                    <h2>온라인 전시회 전시자</h2>
+                    <h1>김제니</h1>
+                    <h3>kimjs1029@kpu.ac.kr</h3>
+                </div>
+            </div>
+
+            <div class="down-p">
+                <div class="down">
+                    <div class="navi">
+                        <h4>저장된 작품 목록</h4>
+                        <div class="light2-1">
+                            <div class="light2-2"></div>
+                            <div class="light2-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="down-list">
+                        <div class="list1">
+                            <a href="Works-de.html">
+                                <p>지역 연계</p>
+                                <h5>Renting umbrella</h5>
+                            </a>
+                        </div>
+                        
+                        <div class="list2">
+                            <a href="Works-de2.html">
+                                <p>창의 융합</p>
+                                <h5>T.Safe</h5>
+                            </a>
+                        </div>
+
+                        <div class="list3">
+                            <a href="Works-de.html">
+                                <p>지역 연계</p>
+                                <h5>HIWAY</h5>
+                            </a>
+                        </div>
+                    </div>               
+                </div>
+
+                <div class="down1">
+                    <div class="navi">
+                        <h4>저장된 채팅 목록</h4>
+                        <div class="light2-1">
+                            <div class="light2-2"></div>
+                            <div class="light2-3"></div>
+                        </div>
+                    </div>
+
+                    <div class="down-list">
+                        <div class="list1">
+                            <a href="Works-de.html">
+                                <p>지역 연계</p>
+                                <h5>HIWAY</h5>
+                            </a>
+                        </div>
+                        
+                        <div class="list2">
+                            <a href="Exhibitors-de.html">
+                                <p>2016162028</p>
+                                <h5>김민재</h5>
+                            </a>
+                        </div>
+                    </div>               
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footers">
+            <div class="address">© UI System Design corp. All rights reserved.</div>
+
+            <div class="sns">
+                <div class="facebook"><a href="#"><i class="fab fa-facebook"></i></a></div>
+                <div class="kpu"><a href="#"><i class="fas fa-university"></i></a></div>
+                <div class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // 자바 인터렉션 주는 부분
+
+        $('.down .light2-2').click(function(){
+            $('.down .light2-2').hide();
+            $('.down .light2-3').show();
+
+            $('.down .down-list').slideDown(300);
+        });
+
+        $('.down .light2-3').click(function(){
+            $('.down .light2-3').hide();
+            $('.down .light2-2').show();
+
+            $('.down .down-list').slideUp(300);
+        });
+
+        $('.down1 .light2-2').click(function(){
+            $('.down1 .light2-2').hide();
+            $('.down1 .light2-3').show();
+
+            $('.down1 .down-list').slideDown(300);
+        });
+
+        $('.down1 .light2-3').click(function(){
+            $('.down1 .light2-3').hide();
+            $('.down1 .light2-2').show();
+
+            $('.down1 .down-list').slideUp(300);
+        });
+
+        $('.down1 .list2').click(function(){
+            $('.chat').slideDown(300);
+        });
+
+        $(document).mousedown(function(){
+            $('.chat').slideUp(300);
+        });
+
+
+
+
+        $(document).mousedown(function(){
+            $('#search-bar').slideUp(300);
+        });
+
+        $('#search-bar').mousedown(function(e){
+            e.stopPropagation();
+        });
+
+    </script>
+</body>
+</html>

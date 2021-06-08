@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+	<meta charset="utf-8">
+	<title>EXHIBITIORS</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+	<style type="text/css">
+        @font-face{
+            src: url("../font/AppleSDGothicNeoB.ttf");
+            font-family: "SD_B";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoH.ttf");
+            font-family: "SD_H";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoM.ttf");
+            font-family: "SD_M";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoL.ttf");
+            font-family: "SD_L";
+        }
+
+		*{
+			/* font-family: 'Noto Sans KR', sans-serif; */
+			margin: 0;
+			padding: 0;
+        }
+        body{ -ms-overflow-style: none; } 
+        
+        ::-webkit-scrollbar { display: none; }
+
+        .content{
+            width: 1280px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header{
+            margin-top: 24px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a{
+            font-family: 'Noto Sans KR', sans-serif;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .logo{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+        .logo1{
+            color: #0084A3;
+        }
+        .logo2{
+            color: #9b3745;
+        }
+        .page{
+            color: #2b2b2b;
+            font-size: 24px;
+
+            margin-right: -1050px;
+        }
+        .search{
+            color: #2b2b2b;
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+        }
+        #search-bar{
+            position: absolute;
+
+            width: 500px;
+            height: 40px;
+            border-radius: 100px;
+            border: none;
+            background-color: #2b2b2b;
+
+            right: 370px;
+
+            display: none;
+            
+            text-align: center;
+        }
+        input::placeholder {
+            color: #fff;
+            font-family: "SD_L";
+            }
+
+        /* 카테고리 선택 부분 */
+        .category{
+            /* margin-left: -5px; */
+
+            margin-top: 20px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+        }
+        .media{
+            position: absolute;
+
+            width: 360px;
+            /* background-color: #2b2b2b; */
+            padding: 16px 0px;
+
+            text-align: center;
+
+            margin-bottom: 16px;
+
+            transition: all 0.3s;
+        }
+        .light-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #9b3745;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: center;
+        }
+        .light-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 2px;
+
+            background-color: #fff;
+        }
+        .icon{
+            font-size: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            margin-bottom: 20px;
+
+            color: #9b3745;
+        }
+        .media p{
+            color: #2b2b2b;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+        }
+        .media h2{
+            color: #2b2b2b;
+            font-size: 24px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .category:hover .media .light-1{
+            opacity: 0;
+        }
+        .category:hover .media h3{
+            opacity: 100;
+        }
+        .category:hover .indust .light1-1{
+            opacity: 0;
+        }
+        .category:hover .indust h3{
+            opacity: 100;
+        }
+
+        .indust{
+            position: absolute;
+
+            width: 360px;
+            /* background-color: #2b2b2b; */
+            padding: 16px 0px;
+
+            top: 0;
+        
+            text-align: center;
+
+            margin-bottom: 16px;
+
+            display: none;
+
+            transition: all 0.3s;
+        }
+        .indust p{
+            color: #2b2b2b;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+        }
+        .indust h2{
+            color: #2b2b2b;
+            font-size: 24px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .icon1{
+            font-size: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            margin-bottom: 20px;
+
+            color: #0084A3;
+        }
+        .light1-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #0084A3;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: center;
+        }
+        .light1-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 24px;
+
+            background-color: #fff;
+        }
+        .media h3{
+            position: absolute;
+
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            /* opacity: 0; */
+
+            top: 25px;
+            left: 158px;
+
+            color: #9b3745;
+
+            opacity: 0;
+        }
+
+        .indust h3{
+            position: absolute;
+
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            /* opacity: 0; */
+
+            top: 25px;
+            left: 158px;
+
+            color: #0084A3;
+
+            opacity: 0;
+        }
+
+        /* 교수님들 프로필 부분 */
+        .container-m{
+            margin-top: 250px;
+        }
+        .professor1{
+            display: inline-block;
+
+            width: 543px;
+            /* display: none; */
+
+            text-align: center;
+            
+            margin-bottom: 64px;
+        }
+        .professor2{
+            margin-left: 180px;
+            display: inline-block;
+
+            width: 543px;
+            /* display: none; */
+
+            text-align: center;
+            
+            margin-bottom: 64px;
+        }
+        .professor3{
+            display: inline-block;
+
+            width: 543px;
+
+            /* display: none; */
+
+            text-align: center;
+        }
+        .professor4{
+            margin-left: 180px;
+            display: inline-block;
+
+            width: 543px;
+            /* display: none; */
+
+            text-align: center;
+        }
+        .container-m .professor1 .pro-img{
+            width: 543px;
+            height: 400px;
+
+            margin-bottom: 36px;
+
+            background-image: url(https://i.postimg.cc/ZnCfDK2L/image.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .container-m .professor2 .pro-img{
+            width: 543px;
+            height: 400px;
+
+            margin-bottom: 36px;
+
+            background-image: url(https://i.postimg.cc/fTgsLVMM/image.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .container-m .professor3 .pro-img{
+            width: 543px;
+            height: 400px;
+
+            margin-bottom: 36px;
+
+            background-image: url(https://i.postimg.cc/R004VwHC/image.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .container-m .professor4 .pro-img{
+            width: 543px;
+            height: 400px;
+
+            margin-bottom: 36px;
+
+            background-image: url(https://i.postimg.cc/cL2XrSKK/image.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+        .container-i .professor1 .pro-img{
+            width: 543px;
+            height: 400px;
+
+            margin-bottom: 36px;
+
+            background-image: url(https://i.postimg.cc/fbW2GK0C/image.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .container-i .professor2 .pro-img{
+            width: 543px;
+            height: 400px;
+
+            margin-bottom: 36px;
+
+            background-image: url(https://i.postimg.cc/2881BLvJ/image.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .container-i .professor3 .pro-img{
+            width: 543px;
+            height: 400px;
+
+            margin-bottom: 36px;
+
+            background-image: url(https://i.postimg.cc/435CtypL/image.png);
+            background-position: center;
+            background-size: cover;
+        }
+
+        h1{
+            font-family: "SD_L";
+            font-size: 18px;
+            letter-spacing: 0.15em;
+        }
+        h2{
+            font-family: "SD_M";
+            font-size: 24px;
+            letter-spacing: 0.15em;
+
+            margin-bottom: 10px;
+        }
+        .overlay{
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            opacity: 0;
+            transition: all 0.3s;
+        }
+        .overlay p{
+            font-family: "SD_L";
+            font-size: 18px;
+            letter-spacing: 0.15em;
+
+            color: #fff;
+
+            padding: 48px 48px;
+        }
+        .pro-img:hover .overlay{
+            opacity: 100;
+        }
+
+        .container-i{
+            margin-top: 250px;
+
+            display: none;
+        }
+
+        
+        footer{
+            /* position: absolute; */
+
+            background-color: black;
+            width: 100%;
+            height: 70px;
+
+            bottom: 0;
+            left: 0;
+
+            margin-top: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footers{
+            width: 1280px;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        
+        .address{
+            text-decoration: none;
+
+            font-family: "SD_L";
+            color: white;
+            font-size: 14px;
+
+            letter-spacing: 0.15em;
+        }
+
+        .sns{
+            display: flex;
+            flex-direction: row;
+
+            margin-left: 320px;
+        }
+        .sns a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .kpu{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+	</style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div class="content">
+        <header>
+            <a class="logo" href="Main-sub.html"><span class="logo1">ON</span><span class="logo2">OFF</span></a>
+            <a class="page" href="Mypage.html"><i class="fas fa-user"></i></a>
+            <div class="search"><i class="fas fa-search"></i>
+                <input type="text" id="search-bar" placeholder="원하는 작가를 검색해보세요."></input>
+            </div>
+        </header>
+
+        <div class="category">
+            <div class="media">
+                <div class="light-1">
+                    <div class="light-2"></div>
+                </div>
+                <h3>CLICK!</h3>
+                <i class="icon fas fa-object-group"></i>
+                <p>MAJOR</p>
+                <h2>미디어 디자인 공학부</h2>
+            </div>
+            <div class="indust">
+                <div class="light1-1">
+                    <div class="light1-2"></div>
+                </div>
+                <h3>CLICK!</h3>
+                <i class="icon1 fas fa-drafting-compass"></i>
+                <p>MAJOR</p>
+                <h2>산업 디자인 공학부</h2>
+            </div>
+        </div>
+
+        <div class="container-m">
+            <div class="professor1">
+                <div class="pro-img">
+                    <div class="overlay">
+                        <p>한 해를 마치면서 코로나로 인해 힘든 시기이지만 여러분들과 무사히
+                            이렇게 졸업 작품 전시회를 개최할 수 있어서 다행이라고 생각합니다.
+                            남은 반학기 마무리 잘하시길 바랍니다.</p>
+                    </div>
+                </div>
+                <h1>미디어디자인 공학과</h1>
+                <h2>이문환 교수님</h2>
+                <h1>moonhwanlee@kpu.ac.kr</h1>
+            </div>
+
+            <div class="professor2">
+                <div class="pro-img">
+                    <div class="overlay">
+                        <p>한 해를 마치면서 코로나로 인해 힘든 시기이지만 여러분들과 무사히
+                            이렇게 졸업 작품 전시회를 개최할 수 있어서 다행이라고 생각합니다.
+                            남은 반학기 마무리 잘하시길 바랍니다.</p>
+                    </div>
+                </div>
+                <h1>미디어디자인 공학과</h1>
+                <h2>권오재 교수님</h2>
+                <h1>kwsokw@kpu.ac.kr</h1>
+            </div>
+
+            <div class="professor3">
+                <div class="pro-img">
+                    <div class="overlay">
+                        <p>한 해를 마치면서 코로나로 인해 힘든 시기이지만 여러분들과 무사히
+                            이렇게 졸업 작품 전시회를 개최할 수 있어서 다행이라고 생각합니다.
+                            남은 반학기 마무리 잘하시길 바랍니다.</p>
+                    </div>
+                </div>
+                <h1>미디어디자인 공학과</h1>
+                <h2>김한종 교수님</h2>
+                <h1>hanjongkim@kpu.ac.kr</h1>
+            </div>
+
+            <div class="professor4">
+                <div class="pro-img">
+                    <div class="overlay">
+                        <p>한 해를 마치면서 코로나로 인해 힘든 시기이지만 여러분들과 무사히
+                            이렇게 졸업 작품 전시회를 개최할 수 있어서 다행이라고 생각합니다.
+                            남은 반학기 마무리 잘하시길 바랍니다.</p>
+                    </div>
+                </div>
+                <h1>미디어디자인 공학과</h1>
+                <h2>박노섭 교수님</h2>
+                <h1>	
+                    pk32703@kpu.ac.kr</h1>
+            </div>
+        </div>
+
+        <div class="container-i">
+            <div class="professor1">
+                <div class="pro-img">
+                    <div class="overlay">
+                        <p>한 해를 마치면서 코로나로 인해 힘든 시기이지만 여러분들과 무사히
+                            이렇게 졸업 작품 전시회를 개최할 수 있어서 다행이라고 생각합니다.
+                            남은 반학기 마무리 잘하시길 바랍니다.</p>
+                    </div>
+                </div>
+                <h1>산업디자인 공학과</h1>
+                <h2>김억 교수님</h2>
+                <h1>kimeok@kpu.ac.kr</h1>
+            </div>
+
+            <div class="professor2">
+                <div class="pro-img">
+                    <div class="overlay">
+                        <p>한 해를 마치면서 코로나로 인해 힘든 시기이지만 여러분들과 무사히
+                            이렇게 졸업 작품 전시회를 개최할 수 있어서 다행이라고 생각합니다.
+                            남은 반학기 마무리 잘하시길 바랍니다.</p>
+                    </div>
+                </div>
+                <h1>산업디자인 공학과</h1>
+                <h2>홍성수 교수님</h2>
+                <h1>hss@kpu.ac.kr</h1>
+            </div>
+
+            <div class="professor3">
+                <div class="pro-img">
+                    <div class="overlay">
+                        <p>한 해를 마치면서 코로나로 인해 힘든 시기이지만 여러분들과 무사히
+                            이렇게 졸업 작품 전시회를 개최할 수 있어서 다행이라고 생각합니다.
+                            남은 반학기 마무리 잘하시길 바랍니다.</p>
+                    </div>
+                </div>
+                <h1>산업디자인 공학과</h1>
+                <h2>신상영 교수님</h2>
+                <h1>ssy@kpu.ac.kr</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footers">
+            <div class="address">© UI System Design corp. All rights reserved.</div>
+
+            <div class="sns">
+                <div class="facebook"><a href="#"><i class="fab fa-facebook"></i></a></div>
+                <div class="kpu"><a href="#"><i class="fas fa-university"></i></a></div>
+                <div class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // 자바 인터렉션 주는 부분
+
+        $('.search').click(function(){
+            $('#search-bar').slideDown(300);
+        });
+
+        $(document).mousedown(function(){
+            $('#search-bar').slideUp(300);
+        });
+
+        $('#search-bar').mousedown(function(e){
+            e.stopPropagation();
+        });
+
+        $('.media').click(function(){
+            $('.media').fadeOut(300, function(){
+                $('.indust').fadeIn(300);
+            })
+
+            $('.container-m').fadeOut(300, function(){
+                $('.container-i').fadeIn(300);
+            });
+        })
+
+        $('.indust').click(function(){
+            $('.indust').fadeOut(300, function(){
+                $('.media').fadeIn(300);
+            })
+
+            $('.container-i').fadeOut(300, function(){
+                $('.container-m').fadeIn(300);
+            });
+        })
+
+    </script>
+</body>
+</html>

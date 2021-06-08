@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Main</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+    <style>
+        body {
+            padding: 0;
+            margin:0;
+            overflow: hidden;
+
+            text-align: center;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .btn1{
+            position: absolute;
+
+            text-decoration: none;
+            background-color: #fff;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 20px 60px;
+            border: none;
+            border-radius: 100px;
+            color: #000;
+
+            bottom: 60px;
+
+            z-index: 120;
+
+            transition: all 0.3s;
+        }
+        .btn1:hover{
+            background-color: #9b3745;
+            color: #fff;
+        }
+
+        /* hover하면 검정색 배경화면 꽉차게해서 내려오게 하고 싶은데 왜 안내려오는지 여쭤볼 것 */
+
+        .mouse{
+            position: absolute;
+			width: 50px;
+			height: 80px;
+
+			border: 2px solid #fff;
+			border-radius: 25px;
+			opacity: 0.75;
+
+			display: flex;
+			justify-content: center;
+			/* align-items: center; */
+
+            bottom: 90px;
+
+            z-index: 110;
+
+            /* 처음 시작했을 때 기준 */
+            left: 45%;
+
+            /* left: 52%; */
+
+            animation: moving 2s ease infinite;
+		}
+		.scroller{
+            margin-top: 10px;
+			width: 4px;
+			height: 15px;
+			border-radius: 25%;
+			background-color: #fff;
+
+            
+		}
+        .left-click{
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: -5px;
+
+            border-radius: 100px;
+			background-color: #fff;
+        }
+        
+        @keyframes moving{
+			0%{
+				opacity: 0;
+			}
+			30%{
+				opacity: 1;
+			}
+			100%{
+				opacity: 0;
+				transform: translateX(250%);
+			}
+		}
+
+        #light{
+            position: absolute;
+            color: #fff;
+            font-size: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            top: 50px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            /* display: none; */
+
+            transition: all 0.3s;
+        }
+        #light .light-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #fff;
+
+            margin-top: 10px;
+
+            display: flex;
+            align-items: center;
+        }
+        .light-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 2px;
+
+            background-color: #FE642E;
+        }
+        #light p{
+            position: absolute;
+
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            opacity: 0;
+
+            margin-top: 46px;
+        }
+        #light:hover{
+            color: #FE642E;
+        }
+        #light:hover .light-1{
+            opacity: 0;
+        }
+        #light:hover p{
+            opacity: 100;
+        }
+
+        #light2{
+            position: absolute;
+            color: #fff;
+            font-size: 32px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            top: 50px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            display: none;
+
+            transition: all 0.3s;
+        }
+        #light2 .light2-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #fff;
+
+            margin-top: 10px;
+
+            display: flex;
+            align-items: center;
+        }
+        .light2-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 24px;
+
+            background-color: #08298A;
+        }
+        #light2 p{
+            position: absolute;
+
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            opacity: 0;
+
+            margin-top: -16px;
+
+            text-align: center;
+        }
+        #light2:hover{
+            color: #08298A;
+        }
+        #light2:hover .light2-1{
+            opacity: 0;
+        }
+        #light2:hover p{
+            opacity: 100;
+        }
+
+        .btn2{
+            position: absolute;
+
+            text-decoration: none;
+            color: #fff;
+
+            bottom: 25px;
+
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 0.15em;
+        }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <canvas id="three"></canvas>
+
+    <button id = "light">
+        <i class="fas fa-sun"></i>
+        <div class="light-1">
+            <div class="light-2"></div>
+        </div>
+        <p>CLICK!</p>
+    </button>
+
+    <button id = "light2">
+        <i class="fas fa-moon"></i>
+        <div class="light2-1">
+            <div class="light2-2"></div>
+        </div>
+        <p>CLICK!</p>
+    </button>
+
+    <a href="Navi.html" class = "btn1">Exhibition</a>
+    <a href="login.html" class = "btn2">Log In</a>
+
+    <div class="mouse">
+		<div class="scroller"></div>
+        <div class="left-click"></div>
+	</div>
+
+    <script type="module">
+        import * as THREE from './three.js-dev/build/three.module.js';
+        import * as dat from './three.js-dev/examples/jsm/libs/dat.gui.module.js';
+        import {OrbitControls} from './three.js-dev/examples/jsm/controls/OrbitControls.js';
+        import {GLTFLoader} from './three.js-dev/examples/jsm/loaders/GLTFLoader.js';
+        
+        let threeCanvas = document.querySelector('#three')
+
+        let renderer = new THREE.WebGLRenderer( { canvas: threeCanvas, antialias:true } );
+        renderer.setSize( window.innerWidth, window.innerHeight );
+        renderer.setClearColor(0xffffff);
+        renderer.setAnimationLoop( animate );
+
+        renderer.toneMapping = THREE.ReinhardToneMapping;
+        renderer.toneMappingExposure = 12;
+
+        let scene = new THREE.Scene();
+
+        let camera = new THREE.PerspectiveCamera( 65, window.innerWidth/window.innerHeight, 0.01, 200);
+        camera.position.x = 0;
+        camera.position.y = 50;
+        camera.position.z = 90;
+        scene.add( camera );
+
+        // let light = new THREE.PointLight(0xffffff, 0.1, 0);
+        // light.position.set(20, 25, 10);
+        // scene.add( light );
+
+        let light1 = new THREE.PointLight(0xffffff, 0.5, 0);
+        light1.position.set(20, 25, 10);
+        scene.add( light1 );
+        light1.visible = false;
+
+        let light2 = new THREE.SpotLight(0xffffff, 0.2, 0, Math.PI/3, 0.5);
+        light2.position.set(0, -1, 15);
+        scene.add( light2 );
+
+        let controls = new OrbitControls( camera, renderer.domElement );
+
+        // let gui = new dat.GUI();
+        // gui.add(light2.position, 'x');
+        // gui.add(light2.position, 'y');
+        // gui.add(light2.position, 'z');
+
+        function animate( time ){
+            renderer.render( scene, camera );
+            controls.update();
+        }
+
+
+        let gltfLoader = new GLTFLoader();
+
+
+        gltfLoader.load('models/hall.gltf', function(gltf) {
+            let hall1 = gltf.scene;
+            hall1.name = "hall1";
+            scene.add(hall1);
+
+            hall1.position.set(-17, 0, 0);
+        });
+
+        gltfLoader.load('models/poster.gltf', function(gltf) {
+            let poster = gltf.scene;
+            poster.name = "poster";
+            scene.add(poster);
+
+            poster.position.set(-17, 0, 0);
+        });
+
+        let textureLoader = new THREE.TextureLoader();
+        let postertexture = textureLoader.load('texture/poster.png');
+        let p
+
+        // 자바 인터렉션 주는 부분
+
+        $('#light').click(function(){
+            light1.visible = true;
+            $('#light').fadeOut(300, function(){
+                $('#light2').fadeIn(300);
+            });
+        });
+
+        $('#light2').click(function(){
+            light1.visible = false;
+            $('#light2').fadeOut(300, function(){
+                $('#light').fadeIn(300);
+            });
+        });
+
+    </script>
+</body>
+</html>

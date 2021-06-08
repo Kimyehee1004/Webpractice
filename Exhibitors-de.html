@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="ko-kr">
+<head>
+	<meta charset="utf-8">
+	<title>EXHIBITIORS-Detail</title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+	<style type="text/css">
+        @font-face{
+            src: url("../font/AppleSDGothicNeoB.ttf");
+            font-family: "SD_B";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoH.ttf");
+            font-family: "SD_H";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoM.ttf");
+            font-family: "SD_M";
+        }
+        @font-face{
+            src: url("../font/AppleSDGothicNeoL.ttf");
+            font-family: "SD_L";
+        }
+
+		*{
+			/* font-family: 'Noto Sans KR', sans-serif; */
+			margin: 0;
+			padding: 0;
+        }
+
+        body{ -ms-overflow-style: none; } 
+        
+        ::-webkit-scrollbar { display: none; }
+
+        .content{
+            width: 1280px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+        header{
+            margin-top: 24px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header a{
+            font-family: 'Noto Sans KR', sans-serif;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        .logo{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+        }
+        .logo1{
+            color: #0084A3;
+        }
+        .logo2{
+            color: #9b3745;
+        }
+        .page{
+            color: #2b2b2b;
+            font-size: 24px;
+
+            margin-right: -1050px;
+        }
+        .search{
+            color: #2b2b2b;
+            font-size: 24px;
+
+            display: flex;
+            align-items: center;
+        }
+        #search-bar{
+            position: absolute;
+
+            width: 500px;
+            height: 40px;
+            border-radius: 100px;
+            border: none;
+            background-color: #2b2b2b;
+
+            right: 370px;
+
+            display: none;
+            
+            text-align: center;
+        }
+        input::placeholder {
+            color: #fff;
+            font-family: "SD_L";
+            }
+
+        /* 카테고리 선택 부분 */
+        .category{
+            /* margin-left: -5px; */
+
+            margin-top: 20px;
+
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+        }
+        .media{
+            position: absolute;
+
+            width: 360px;
+            /* background-color: #2b2b2b; */
+            padding: 16px 0px;
+
+            text-align: center;
+
+            margin-bottom: 16px;
+
+            transition: all 0.3s;
+        }
+        .light-1{
+            opacity: 100;
+
+            padding: 5px 10px;
+            width: 40px;
+            border-radius: 100px;
+
+            background-color: #9b3745;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .light-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 2px;
+
+            background-color: #fff;
+        }
+        .icon{
+            font-size: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            margin-bottom: 20px;
+
+            color: #9b3745;
+        }
+        .media p{
+            color: #2b2b2b;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+        }
+        .media h2{
+            color: #2b2b2b;
+            font-size: 24px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .media h3{
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            /* opacity: 0; */
+            color: #fff;
+        }
+
+        /* .category:hover .media .light-1{
+            opacity: 0;
+        }
+        .category:hover .media h3{
+            opacity: 100;
+        }
+        .category:hover .indust .light1-1{
+            opacity: 0;
+        }
+        .category:hover .indust h3{
+            opacity: 100;
+        } */
+
+        .indust{
+            position: absolute;
+
+            width: 360px;
+            /* background-color: #2b2b2b; */
+            padding: 16px 0px;
+
+            top: 0;
+        
+            text-align: center;
+
+            margin-bottom: 16px;
+
+            display: none;
+
+            transition: all 0.3s;
+        }
+        .indust p{
+            color: #2b2b2b;
+            font-size: 18px;
+            letter-spacing: 0.15em;
+            margin-bottom: 8px;
+        }
+        .indust h2{
+            color: #2b2b2b;
+            font-size: 24px;
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+        }
+        .icon1{
+            font-size: 36px;
+            border: none;
+            background-color: rgba(255, 255, 255, 0);
+
+            margin-bottom: 20px;
+
+            color: #0084A3;
+        }
+        .light1-1{
+            opacity: 100;
+
+            width: 40px;
+            height: 16px;
+            border-radius: 100px;
+
+            background-color: #0084A3;
+
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+
+            display: flex;
+            align-items: center;
+        }
+        .light1-2{
+            width: 12px;
+            height: 12px;
+            border-radius: 100px;
+
+            margin-left: 24px;
+
+            background-color: #fff;
+        }
+        .indust h3{
+            position: absolute;
+
+            font-size: 12px;
+            letter-spacing: 0.15em;
+
+            /* opacity: 0; */
+
+            top: 25px;
+            left: 158px;
+
+            color: #0084A3;
+
+            opacity: 0;
+        }
+
+        /* 디테일부분 */
+        .container{
+            margin-top: 250px;
+
+            display: flex;
+            /* flex-direction: row; */
+            /* flex-wrap: wrap; */
+
+        }
+        .contentsA{
+            position: relative;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .contentsA .img{
+            width: 390px;
+            height: 300px;
+
+            background-image: url(https://i.postimg.cc/YqRfgnMk/rthgffg.png);
+            background-position: center;
+            background-size: cover;
+
+            margin-right: 24px;
+        }
+        .contentsB{
+            width: 750px;
+            height: 260px;
+
+            padding: 20px 20px;
+
+            background-color: rgba(155, 55, 69, 0.1);
+
+            text-align: center;
+
+            display: none;
+        }
+        .mediadesign{
+            font-family: "SD_M";
+            font-size: 20px;
+        }
+        .name{
+            font-family: "SD_B";
+            font-size: 28px;
+
+            margin-bottom: 10px;
+        }
+        .graphicdesign{
+            font-family: "SD_M";
+            font-size: 20px;
+
+            margin-bottom: 50px;
+        }
+        /* .graphAA{
+            position: relative;
+        } */
+        .graphA{
+            position: absolute;
+
+            color: #fff;
+            width:750px; 
+            height:22px;
+            background-color: white;
+            border-radius: 28px;
+
+            margin-top: 5px;
+        }
+        .graphA-A{
+            position: absolute;
+
+            width:600px; 
+            height:22px;
+
+            background-color: #9b3745;
+            border-radius: 28px;
+
+            margin-top: 5px;
+        }
+        .UIUXdesign{
+            font-family: "SD_M";
+            font-size: 20px;
+
+            margin-bottom: 50px;
+        }
+        .graphB{
+            position: absolute;
+
+            color: #fff;
+            width:750px; 
+            height:22px;
+            background-color: white;
+            border-radius: 28px;
+
+            margin-top: 5px;
+        }
+        .graphB-B{
+            position: absolute;
+
+            width:700px; 
+            height:22px;
+
+            background-color: #9b3745;
+            border-radius: 28px;
+
+            margin-top: 5px;
+        }
+
+        .comment{
+            font-size: 24px;
+            font-family: "SD_M";
+            letter-spacing: 0.08em;
+        }
+        .Tap1{
+            position: absolute;
+
+            font-size: 42px;
+            color: #9b3745;
+
+            left: 414px;
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .Tap1 p{
+            font-family: "SD_B";
+            font-size: 18px;
+
+            display: inline-block;
+
+            margin-left: 10px;
+        }
+        .Tap2{
+            position: absolute;
+
+            font-size: 42px;
+            color: #9b3745;
+
+            display: none;
+
+            right: -48px;
+        }
+        .intro{
+            margin-top: 80px;
+            margin-bottom: 24px;
+        }
+        .intro h2{
+            font-size: 24px;
+            font-family: "SD_B";
+            letter-spacing: 0.15em;
+        }
+        .contentsC{
+            background-image: url(https://i.postimg.cc/66D7kZKk/works1.png);
+            background-position: center;
+            background-size: cover;
+
+            width: 1280px;
+            height: 450px;
+            margin-bottom: 10px;
+            margin-top: 24px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contentsD{
+            background-image: url(https://i.postimg.cc/sXf6RXFW/ECODNWORKD.png);
+            background-position: center;
+            background-size: cover;
+
+            width: 1280px;
+            height: 450px;
+            margin-bottom: 10px;
+        }
+
+        .contentsE{
+            background-image: url(https://i.postimg.cc/d3tF7vbP/Last-works.png);
+            background-position: center;
+            background-size: cover;
+
+            width: 1280px;
+            height: 450px;
+        }
+        .contentsC:hover .overlay{
+            opacity: 100;
+        }
+        .contentsD:hover .overlay{
+            opacity: 100;
+        }
+        .contentsE:hover .overlay{
+            opacity: 100;
+        }
+        .overlay{
+            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+
+            text-align: center;
+            color: #fff;
+
+            opacity: 0;
+
+            transition: all 0.3s;
+        }
+        .overlay h5{
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+            font-size: 18px;
+        }
+        .overlay h4{
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+            font-size: 24px;
+
+            margin-bottom: 10px;
+        }
+        .overlay h3{
+            font-family: "SD_M";
+            letter-spacing: 0.15em;
+            font-size: 48px;
+
+            margin-bottom: 16px;
+        }
+        .overlay p{
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+            font-size: 18px;
+        }
+        .link{
+            margin-top: 50px;
+
+            width: 300px;
+            height: 40px;
+            text-align: center;
+
+            background-color: #fff;
+
+            margin-left: auto;
+            margin-right: auto;
+
+            border-radius: 100px;
+            border: solid 3px #9b3745;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        a{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+
+            font-size: 16px;
+            text-decoration: none;
+        }
+
+        .link-1{
+            position: absolute;
+            color: #9b3745;
+        }
+
+        .link-2{
+            position: absolute;
+            color: #fff;
+            opacity: 0;
+
+            letter-spacing: 0.3em;
+        }
+        .link:hover{
+            background-color: #9b3745;
+        }
+        .link:hover .link-2{
+            opacity: 100;
+        }
+
+
+        /* 푸터부분 */
+        
+        footer{
+            /* position: absolute; */
+
+            background-color: black;
+            width: 100%;
+            height: 70px;
+
+            bottom: 0;
+            left: 0;
+
+            margin-top: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .footers{
+            width: 1280px;
+            
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+        }
+        
+        .address{
+            text-decoration: none;
+
+            font-family: "SD_L";
+            color: white;
+            font-size: 14px;
+
+            letter-spacing: 0.15em;
+        }
+
+        .sns{
+            display: flex;
+            flex-direction: row;
+
+            margin-left: 320px;
+        }
+        .sns a{
+            color: #fff;
+            text-decoration: none;
+        }
+        .kpu{
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        /* 팝업창 뜨는거 */
+        .pop_up{
+            /* display: inline-block;
+            position: sticky; */
+            /* display: fixed; */
+
+            z-index: 100;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+
+            top:0;
+
+            /* display: flex;
+            align-items: center; */
+
+            display: none;
+        }
+        .pop-kpu{
+            position: absolute;
+
+            width: 700px;
+            /* height: 680px; */
+            background-color: white;
+            border-radius: 29px;
+
+            text-align: center;
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 48px;
+
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            vertical-align: center;
+        }
+        .kpuA{
+            font-family: "SD_M";
+            font-size: 24px;
+        }
+        .kpuB{
+            font-family: "SD_B";
+            font-size: 36px;
+        }
+        .kpu-img{
+            margin-top: 30px;
+            margin-bottom: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 500px;
+            height: 312px;
+
+            background-image: url(https://i.postimg.cc/yxXZcWmN/media.png);
+            background-position: center;
+            background-size: cover;
+        }
+        .kpu_contents p{
+            font-family: "SD_L";
+            font-size: 18px;
+        }
+
+        /* 고정된 채팅창 버튼 */
+        .main-button{
+            z-index: 10;
+
+            position: fixed; 
+            bottom: 70px;
+            right: 320px;
+
+            width: 100px;
+            height: 100px;
+
+            background-color: #fff;
+            color: #000;
+            border-radius: 50px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+
+            transition: all 0.3s;
+        }
+        .chat-b{
+            font-size: 40px;
+        }
+        .main-button:hover{
+            background-color: #9b3745;
+            color: #fff;
+        }
+
+        /* 채팅방 부분 */
+        .chat{
+            /* padding-top: 42px;
+            padding-bottom: 42px; */
+            width: 494px;
+            height: 700px;
+            padding-bottom: 42px;
+
+            z-index: 11;
+
+            position: fixed; 
+            bottom: 70px;
+            right: 320px;
+            
+            background-color: #fff;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+
+            text-align: center;
+
+            display: none;
+        }
+        .chat-t{
+            margin-top: 42px;
+        
+        }
+        .chat-t h2{
+            font-family: "SD_L";
+            letter-spacing: 0.15em;
+            font-size: 18px;
+        }
+        .chat-t h1{
+            font-family: "SD_B";
+            letter-spacing: 0.15em;
+            font-size: 24px;
+
+            margin-bottom: 32px;
+        }
+        .chat-m{
+            background-color: #9b3745;
+            width: 410px;
+            height: 463px;
+
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 12px;
+
+            padding-top: 24px;
+        }
+        .chat-b1{
+            margin-left: 24px;
+            width: 250px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #fff;
+            border-radius: 20px;
+
+            color :#2b2b2b;
+            text-align: center;
+
+            font-family: "SD_M";
+            font-size: 18px;
+
+            margin-bottom: 24px;
+        }
+        .chat-b2{
+            margin-left: 136px;
+            width: 250px;
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #fff;
+            border-radius: 20px;
+
+            color :#2b2b2b;
+            text-align: center;
+
+            font-family: "SD_M";
+            font-size: 18px;
+
+            margin-bottom: 24px;
+        }
+        #chat-b{
+            width: 350px;
+            height: 60px;
+            border: none;
+            background-color: #2b2b2b;
+
+            border-radius: 0px;
+            text-align: center;
+
+            margin-right: 12px;
+        }
+        input::placeholder {
+            color: #ffffff;
+            font-family: "SD_L";
+        }
+        .chat-s{
+            display: inline-block;
+            /* margin-top: 4px; */
+            /* background-color: #ccc; */
+
+            font-size: 24px;
+
+            margin-right: 20px;
+        }
+	</style>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</head>
+<body>
+    <div class="main-button">
+        <div class="chat-b"><i class="fas fa-comment"></i></div>
+    </div>
+
+    <div class="chat">
+        <div class="chat-t">
+            <h2>2016162023</h2>
+            <h1>김제니</h1>
+        </div>
+
+        <div class="chat-m">
+            <div class="chat-b1">안녕하세요!</div>
+            <div class="chat-b2">반갑습니다.</div>
+        </div>
+
+        <div class="chat-i">
+            <input type="text" id="chat-b" style="color: #ffffff;" placeholder="메시지를 입력해주세요."></input>
+            <div class="chat-s"><i class="fas fa-paper-plane"></i></div>
+        </div>
+    </div>
+
+        <div class="pop">
+            <div class="pop_up">
+                <div class="pop-kpu">
+                    <div class="kpuA">한국산업기술대학교</div>
+                    <div class="kpuB">미디어디자인 공학과</div>   
+        
+                    <div class="kpu_contents">
+                        <div class="kpu-img"></div>
+                        <p>미디어디자인 공학과는 사용자 중심 디자인 원리 UX(user experience)에 기반하여 인터랙티브한 미디어를 구현할 수 있는 실무형 인재육성을 합니다.
+                            디자인 기획 능력부터 인터페이스 설계, 프로토 타이핑, 마지막으로 인터렉티브 미디어 디자인 능력을 구현할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    <div class="content">
+        <header>
+            <a class="logo" href="Main-sub.html"><span class="logo1">ON</span><span class="logo2">OFF</span></a>
+            <a class="page" href="Mypage.html"><i class="fas fa-user"></i></a>
+            <div class="search"><i class="fas fa-search"></i>
+                <input type="text" id="search-bar" placeholder="원하는 작가를 검색해보세요."></input>
+            </div>
+        </header>
+
+        <div class="category">
+            <div class="media">
+                <i class="icon fas fa-object-group"></i>
+                <p>MAJOR</p>
+                <h2>미디어 디자인 공학부</h2>
+                <div class="light-1">
+                    <h3>MORE</h3>
+                </div>
+            </div>
+
+            <!-- <div class="indust">
+                <div class="light1-1">
+                    <div class="light1-2"></div>
+                </div>
+                <h3>CLICK!</h3>
+                <i class="icon1 fas fa-drafting-compass"></i>
+                <p>MAJOR</p>
+                <h2>산업 디자인 공학부</h2>
+            </div> -->
+        </div>
+
+        <div class="container">
+            <div class="contentsA">
+                <div class="img"></div>
+
+                <div class="Tap1"><i class="fas fa-caret-right"></i><p> OPEN!</p></div>
+                <div class="Tap2"><i class="fas fa-caret-left"></i></div>
+                
+                <div class="contentsB">
+                    <div class="contentsB_A">
+                        <div class="mediadesign">미디어디자인 공학과</div>
+                        <div class="name">2016162023 김제니</div>
+
+                        <div class="graphicdesign">그래픽 디자인
+                            <div class="graphAA">
+                                <div class="graphA"></div>
+                                <div class="graphA-A"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="UIUXdesign">UI UX 디자인
+                            <div class="graphBB">
+                                <div class="graphB"></div>
+                                <div class="graphB-B"></div>
+                            </div>
+                        </div>
+
+                    </div>
+        
+                    <div class="comment">
+                        학교 생활 안녕...그리고 내 백수 생활 안녕!
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="intro">
+            <h2>개인작품</h2>
+
+            <div class="contentsC">
+                <div class="overlay">
+                    <h5> 웹 프로그래밍 / UI UX 디자인</h5>
+                    <h4>2021.03.08 - 2021.06.14</h4>
+                    <h3>Electric kettle</h3>
+                    <p>직접 프로그래밍을 진행하면서 HTML과 CSS와 자바 스크립트 기본 문법을 적용 <br> 
+                        전자 주전자 상품을 파는 제품형 웹사이트를 제작하여 레이아웃과 미니멀리즘을 구현한 작품입니다.</p>
+                </div>
+            </div>
+            <div class="contentsD">
+                <div class="overlay">
+                    <h5>어플리케이션 / UI UX 디자인</h5>
+                    <h4>2021.03.08 - 2021.06.14</h4>
+                    <h3>지각하는 통근러를 위한 앱</h3>
+                    <p>직접 프로그래밍을 진행하면서 HTML과 CSS와 자바 스크립트 기본 문법을 적용 <br> 
+                        아침마다 지각하는 통근러들에게 시간을 자세하게 분석해 지각하지 않도록 하기 위한 어플입니다. </p>
+                </div>
+            </div>
+            <div class="contentsE">
+                <div class="overlay">
+                    <h5>어플리케이션 / UI UX 디자인</h5>
+                    <h4>2021.03.08 - 2021.06.14</h4>
+                    <h3>구독한 서비스 확인 앱</h3>
+                    <p>직접 프로그래밍을 진행하면서 HTML과 CSS와 자바 스크립트 기본 문법을 적용 <br> 
+                        사용자가 구독한 서비스가 무엇이 있는지 확인할 수 있도록 디자인한 어플입니다.</p>
+                </div>
+            </div>
+        </div>
+
+        <a href="Works-de.html" class="link">
+            <div class="link-1">GO TO Graduation Work</div>
+            <div class="link-2">ON</div>
+        </a>
+
+    </div>
+
+    <footer>
+        <div class="footers">
+            <div class="address">© UI System Design corp. All rights reserved.</div>
+
+            <div class="sns">
+                <div class="facebook"><a href="#"><i class="fab fa-facebook"></i></a></div>
+                <div class="kpu"><a href="#"><i class="fas fa-university"></i></a></div>
+                <div class="instagram"><a href="#"><i class="fab fa-instagram"></i></a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        // 자바 인터렉션 주는 부분
+
+        $('.search').click(function(){
+            $('#search-bar').slideDown(300);
+        });
+
+        $(document).mousedown(function(){
+            $('#search-bar').slideUp(300);
+        });
+
+        $('#search-bar').mousedown(function(e){
+            e.stopPropagation();
+        });
+
+        $('.light-1').click(function(){
+            $('.pop_up').slideDown(300);
+        });
+
+        $(document).mousedown(function(){
+            $('.pop_up').slideUp(300);
+        });
+
+        $('.Tap1').click(function(){
+            $('.contentsB').fadeIn(300, function(){
+                $('.Tap2').fadeIn(300);
+            });
+            $('.Tap1').fadeOut(300);
+        });
+
+        $('.Tap2').click(function(){
+            $('.Tap2').fadeOut(300, function(){
+                $('.contentsB').fadeOut(300);
+                $('.Tap1').fadeIn(300);
+            });
+        });
+
+        $('.main-button').click(function(){
+            $('.chat').slideDown(300);
+            $('.main-button').fadeOut(300);
+        });
+
+        $(document).mousedown(function(){
+            $('.chat').slideUp(300);
+            $('.main-button').fadeIn(300);
+        });
+
+
+    </script>
+</body>
+</html>
